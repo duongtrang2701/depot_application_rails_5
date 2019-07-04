@@ -60,6 +60,9 @@ es:
         other: "%{count} errores han impedido que este %{model} se guarde"
 
   thanks: "Gracias por su pedido"
+  check: "Comprobar"
+  credit: "Tarjeta de crédito"
+  purchase: "Orden de compra"
 
         
     
