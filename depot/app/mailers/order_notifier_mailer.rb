@@ -1,5 +1,5 @@
 class OrderNotifierMailer < ApplicationMailer
-  default from: 'Trang Ruby <depot@example.com>'
+  default from: 'Trang Ruby <duong1997trang@gmail.com>'
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
   #
