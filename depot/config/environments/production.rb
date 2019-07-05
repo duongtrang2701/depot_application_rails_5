@@ -12,7 +12,7 @@ Rails.application.configure do
 
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
-  config.action_controller.perform_caching = true
+  config.action_controller.perform_caching = false
 
   # Ensures that a master key has been made available in either ENV["RAILS_MASTER_KEY"]
   # or in config/master.key. This key is used to decrypt credentials (and other encrypted files).
@@ -27,7 +27,7 @@ Rails.application.configure do
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = false
+  config.assets.compile = true
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
@@ -89,22 +89,22 @@ Rails.application.configure do
   end
 
   # SMTP settings for gmail
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options = { host: 'depot2019.herokuapp.com' }
-
-  config.action_mailer.smtp_settings = {
-    address:ENV['SMTP_ADDRESS'],
-    port: Integer(ENV['SMTP_PORT']),
-    domain: ENV['SMTP_DOMAIN'],
-    authentication: "plain",
-    user_name: ENV['GMAIL_SMTP_USERNAME'],
-    password: ENV['GMAIL_SMTP_PASSWORD'],
-    enable_starttls_auto: true
-  }
+  Depot::Application.configure do
+    config.action_mailer.delivery_method = :smtp  
+    config.action_mailer.smtp_settings = {
+      address: "smtp.gmail.com",
+      port: 587,
+      domain: "domain.of.sender.net",
+      authentication: "plain",
+      user_name: "dave",
+      password: "secret",
+      enable_starttls_auto: true
+    }
+  end
   config.action_mailer.perform_deliveries = true
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default_options = { from: 'duong1997trang@gmail.com' }
+
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 end
